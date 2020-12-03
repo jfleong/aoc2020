@@ -1,0 +1,11 @@
+# compiled files
+*.o
+*.a
+*.so
+*.pyc
+
+# egg / dist info files
+.eggs/
+.cache/
+*.egg-info
+*.dist-info
