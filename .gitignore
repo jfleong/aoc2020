@@ -9,3 +9,5 @@
 .cache/
 *.egg-info
 *.dist-info
+
+venv/
