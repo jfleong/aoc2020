@@ -23,10 +23,8 @@ def count_all_yes_group(group):
     for i, person in enumerate(group):
         for question in person:
             if question not in yes:
-#                log.debug("person {}, answered yes to q: {}".format(i, question))
                 yes[question] = [i]
             else:
-#                log.debug("person {}, answered yes to q: {}".format(i, question))
                 yes[question].append(i)
     log.debug(yes)
     all_yes_count = 0
@@ -115,8 +113,8 @@ def part2():
 def main():
     # test_yes_counter()
     part1()
-    test_all_yes_counter()
-    # part2()
+    # test_all_yes_counter()
+    part2()
 
 
 if __name__ == "__main__":
