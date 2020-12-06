@@ -4,8 +4,8 @@ import logging
 
 from lib.helpers import read_file, list_from_newline_sep_string
 
-logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
-# logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+# logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 log = logging.getLogger(__name__)
 
 def count_group(group):
