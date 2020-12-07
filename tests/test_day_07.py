@@ -1,4 +1,4 @@
-from aoc.day_07.main import create_graph, find_possible_bags
+from aoc.day_07.main import create_graph, can_hold, count_bags
 from aoc.lib.helpers import list_from_newline_sep_string
 
 
@@ -26,7 +26,7 @@ dotted black bags contain no other bags."""
     graph = create_graph(sample_rules)
     assert graph == expected_output
 
-def test_find_possible_bags():
+def test_can_hold():
     sample_rules="""light red bags contain 1 bright white bag, 2 muted yellow bags.
 dark orange bags contain 3 bright white bags, 4 muted yellow bags.
 bright white bags contain 1 shiny gold bag.
@@ -38,4 +38,19 @@ faded blue bags contain no other bags.
 dotted black bags contain no other bags."""
     sample_input = "1 shiny golden bag"
     graph = create_graph(sample_rules)
-    assert find_possible_bags(sample_input, graph) == 4
+    gold_fits_in = can_hold(["shiny gold"], graph)
+    assert gold_fits_in == 4
+
+def test_total_bag_contents():
+    sample_rules="""light red bags contain 1 bright white bag, 2 muted yellow bags.
+dark orange bags contain 3 bright white bags, 4 muted yellow bags.
+bright white bags contain 1 shiny gold bag.
+muted yellow bags contain 2 shiny gold bags, 9 faded blue bags.
+shiny gold bags contain 1 dark olive bag, 2 vibrant plum bags.
+dark olive bags contain 3 faded blue bags, 4 dotted black bags.
+vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.
+faded blue bags contain no other bags.
+dotted black bags contain no other bags."""
+    graph = create_graph(sample_rules)
+    gold_contents = count_bags(["shiny gold"], graph)
+    assert gold_contents == 32
