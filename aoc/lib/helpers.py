@@ -22,21 +22,13 @@ def list_from_newline_sep_string(newline_sep_string):
         groups.append(group_items.split("\n"))
     return groups
 
-def test_list_from_newline_sep_string():
-    sample_input="""abc
+def find_summer(target, numbers):
+    num_map = {}
+    for number in numbers:
+        number = int(number)
+        difference = target - number
+        if number in num_map:
+            return number * num_map[number]
+        num_map[difference] = number
 
-    a
-    a
-    a"""
-
-    expected_len = 2
-    new_list = list_from_newline_sep_string(sample_input)
-    if len(new_list) != 2:
-        log.error("xxx - wrong amount of groups")
-        log.error(new_list)
-
-def main():
-   test_list_from_newline_sep_string()
-
-if __name__ == "__main__":
-    main()
+    return -1
